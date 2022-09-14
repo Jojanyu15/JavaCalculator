@@ -10,7 +10,8 @@ pipeline {
             steps {
                 script {
                        if(params.BUILD_TOOL == "Gradle"){
-                            echo('./gradlew clean build')
+                            echo('building')
+                            sh('./gradlew clean build')
                        }
                        else if(params.BUILD_TOOL == "Maven"){
                             sh('./mvnw clean package')
