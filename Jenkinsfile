@@ -9,11 +9,11 @@ pipeline {
         stage('Release'){
             steps {
                 script {
-                       if(params.BUILD_TOOL == "Gradle"){
+                       if(params.BUILD-TOOL == "Gradle"){
                             echo('building')
                             sh('./gradlew clean build')
                        }
-                       else if(params.BUILD_TOOL == "Maven"){
+                       else if(params.BUILD-TOOL == "Maven"){
                             sh('./mvnw clean package')
                        }
                 }
