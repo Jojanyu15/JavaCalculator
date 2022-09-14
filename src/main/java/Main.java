@@ -1,30 +1,31 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el primer número: ");
-        int number1= scanner.nextInt();
+        BigInteger number1= scanner.nextBigInteger();
         System.out.print("Ingrese el segundo número: ");
-        int number2= scanner.nextInt();
+        BigInteger number2= scanner.nextBigInteger();
         System.out.print("Ingrese el la operación que desea realizar [* / + -]: ");
         String operation = scanner.nextLine();
-        int result;
+        BigInteger result;
         switch (operation){
             case "*":
-                result = number1* number2;
+                result = number1.multiply(number2);
                 break;
             case "/":
-                result = number1* number2;
+                result = number1.divide(number2);
                 break;
             case "+":
-                result = number1+number2;
+                result = number1.add(number2);
                 break;
             case "-":
-                result = number1 - number2;
+                result = number1.subtract(number2);
                 break;
             default:
-                break;
+                throw new ArithmeticException();
         }
     }
 }
