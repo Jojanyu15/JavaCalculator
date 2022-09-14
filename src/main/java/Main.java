@@ -27,5 +27,6 @@ public class Main {
             default:
                 throw new ArithmeticException();
         }
+        System.out.println("El resultado de la operación es: " + result);
     }
 }
