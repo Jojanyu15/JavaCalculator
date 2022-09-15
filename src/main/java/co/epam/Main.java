@@ -1,17 +1,27 @@
+package co.epam;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Main {
+@SpringBootApplication
+public class Main extends SpringBootServletInitializer {
     public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el primer número: ");
         BigInteger number1= scanner.nextBigInteger();
         System.out.print("Ingrese el segundo número: ");
         BigInteger number2= scanner.nextBigInteger();
         System.out.print("Ingrese el la operación que desea realizar [* / + -]: ");
-        String operation = scanner.nextLine();
+        String operation = scanner.next();
         BigInteger result;
         switch (operation){
+            default:
             case "*":
                 result = number1.multiply(number2);
                 break;
@@ -24,8 +34,11 @@ public class Main {
             case "-":
                 result = number1.subtract(number2);
                 break;
-            default:
-                throw new ArithmeticException();
         }
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(Main.class);
     }
 }
